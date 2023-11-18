@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{%extends 'MyApp/base.html'%}
+      {%block body_block%}
+    <div class="container col-6 mx-auto card pull-3 shadow-lg">
+        <h1>Receipe Details...</h1><hr> 
+        <diV class="mt-5">
+          <div class="mx-auto col-6">
+            <form>
+            <div class="jumbotron col-md-4  card">
+              <label for="exampleInputEmail1"  class="form-label">SEARCH RECEIPE</label>
+              <input name="search" placeholder="Search ...."  type="text" class="form-control">
+            </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+          </div>
+        </diV>
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Sr no:</th>
+                <th scope="col">Receipe Name</th>
+                <th scope="col">About Receipe</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Receipe Image</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for receipes in receipe %}
+              <tr>
+                <th scope="row" >{{ forloop.counter }}</th>
+                <td>{{ receipes.receipe_name }}</td>
+                <td>{{receipes.receipe_description}}</td>
+                <td>Rs:{{ receipes.receipe_amount}}</td>
+                <td>
+                    <img src="/media/{{receipes.receipe_image}}" style="height: 100px; width:120px;"/></td>
+                    <td><a href="/update/{{receipes.receipe_slug}}" class="btn btn-primary">Update</a><hr><a href="/delete/{{ receipes.receipe_slug }}" class="btn btn-danger">Delete</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <a href="/receipes/" class="btn btn-primary btn-success">Add Receipe</a>
+    </div>
+    
+
+{%endblock%}

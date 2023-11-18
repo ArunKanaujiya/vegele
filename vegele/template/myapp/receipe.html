@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{%extends 'MyApp/base.html'%}
+      {%block body_block%}
+    <div class="container mt-5">
+        <form class="col-6 mx-auto card pull-3 shadow-lg" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <h1>Receipe Details</h1><hr>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Receipe Name</label>
+              <input name="receipe_name" required  type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1"   class="form-label">Receipe Description</label>
+              <textarea name="receipe_description" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1"   class="form-label">Receipe Amount</label>
+              <textarea name="receipe_amount" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Receipe image</label>
+                <input name="receipe_image" type="file" class="form-control">
+              </div><br>
+            <button type="submit" class="btn btn-primary btn-success">Add Receipe</button>
+            <a href="/index" class="btn btn-group-lg btn-warning">Show Receipe</a>
+          </form>
+
+ </div>
+{%endblock%}

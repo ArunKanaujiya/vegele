@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{%extends 'MyApp/base.html'%}
+      {%block body_block%}
+  <div class="container navbar dark p-3 bg-danger shadow-lg">
+    <nav class="navbar dark p-3 bg-danger shadow-lg">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <form class="d-flex" role="search">
+                <a href="/login" class="btn btn-outline-success" type="submit">Logout</a>
+              </form>
+          </div>
+        </div>
+      </nav>
+    <div class="jumbotron" >
+        <div class="container">
+          <h1>Thanks for VISIT Receipe Apps...!!</h1>
+          <h2>Please Login Again:</h2>
+            <a href="/login" class="btn btn-success">Login</a>
+        </div>
+      </div>
+  </div>
+{%endblock%}
