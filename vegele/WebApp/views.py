@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
-@login_required
+@login_required(login_url='/login')
 def receipe(request):
     if request.method=='POST':
         data=request.POST
@@ -29,7 +29,7 @@ def receipe(request):
         
     return render(request,'myapp/receipe.html',{'context':receipe,})
 
-@login_required
+@login_required(login_url='/login')
 def index(request):
     receipe=Receipe.objects.all()
     if request.GET.get('search'):
@@ -67,7 +67,7 @@ def update_receipe(request,slug):
 
 def login_page(request):
     if request.method=='post':
-        username=request.POSt.get('username')
+        username=request.POST.get('username')
         password=request.POST.get('password')
 
         if not User.objects.filter(username=username).exists():
